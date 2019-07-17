@@ -6,6 +6,7 @@
 - [ ] run installation
 - [ ] save config files from this repo into system
 - [ ] TBD
+- [ ] for windows intall WSL and run setup.sh
 
 ### .zhsrc
 - [ ] plugins;

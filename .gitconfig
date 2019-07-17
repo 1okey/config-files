@@ -1,5 +1,8 @@
 [user]
-	name = Anton Skochko
-	username = AntonSkochko
+	name = <FIRSTNAME LASTNAME>
+	username = <USERNAME>
+	email = <EMAIL>
 [core]
-# todo
+	editor = vim
+[alias]
+	unstage = reset HEAD
