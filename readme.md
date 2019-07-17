@@ -1,4 +1,4 @@
-# .files
+# config-files
 
 ## start.sh
 - [ ] add platform (and distro) detection
