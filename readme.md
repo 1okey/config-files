@@ -1,5 +1,11 @@
 # config-files
 
+- [ ] separate config files into separate folders 
+
+## setup.bat
+- [ ] learn bat syntax lol
+- [ ] add symlinks into home folder for git, cygwin etc.
+
 ## start.sh
 - [ ] add platform (and distro) detection
 - [ ] create list of needed packages and tools
