@@ -1,7 +1,7 @@
 [user]
-	name = <FIRSTNAME LASTNAME>
-	username = <USERNAME>
-	email = <EMAIL>
+	name = Anton Skochko
+	username = AntonSkochko 
+	email = antonskochko@gmail.com 
 [core]
 	editor = vim
 [alias]
