@@ -1,0 +1,33 @@
+# binaries
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.bin
+
+# tmp
+*.swp
+*.swo
+*~
+
+# archive
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+# OS junk
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+*.lock
+*.log

@@ -2,7 +2,19 @@
 	name = Anton Skochko
 	username = AntonSkochko 
 	email = antonskochko@gmail.com 
+[color]
+	ui = true
+[commit]
+	template = ~/.gittemplate
 [core]
 	editor = vim
+	autocrlf = true
 [alias]
+	new-branch = checkout -b 
+[web]
+	browser = google-chrome
+[credential]
 	unstage = reset HEAD
+	helper = cache --timeout=7200
+
+
