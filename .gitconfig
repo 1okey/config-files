@@ -8,13 +8,11 @@
 	template = ~/.gittemplate
 [core]
 	editor = vim
-	autocrlf = true
+	autocrlf = input 
 [alias]
 	new-branch = checkout -b 
+	unstage = reset HEAD
 [web]
 	browser = google-chrome
 [credential]
-	unstage = reset HEAD
 	helper = cache --timeout=7200
-
-

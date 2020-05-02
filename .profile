@@ -1,4 +1,3 @@
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -7,24 +6,19 @@ if [ -f "$HOME/.aliases" ]; then
     . $HOME/.aliases
 fi
 
-# set PATH so it includes user's private bin if it exists
+if [ -f "$HOME/.env" ]; then
+    . $HOME/.env
+fi
+
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-
-HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 shopt -s histappend
 shopt -s checkwinsize
@@ -69,12 +63,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -86,7 +74,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-######### on exit ###########
+# run this section on exit on exit 
 if [ "$SHLVL" = 1 ]; then
     [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
 fi
