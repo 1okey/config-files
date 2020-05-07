@@ -1,3 +1,7 @@
+# editors/IDEs
+.vscode
+.idea
+
 # binaries
 *.com
 *.class
