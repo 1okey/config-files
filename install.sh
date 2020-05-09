@@ -1,13 +1,25 @@
 #!/bin/sh
 
+if [ -z $(uname -a | grep -o 'Ubuntu') ]
+then 
+    echo 'This script meant to run only on Ubuntu distros'
+    exit
+fi
+
 # installing main tools
 apt install git zsh tmux vim golang -y
 
 # changing default shell
-if [ $SHELL != "/bin/zsh" ]; then chsh -s $(which zsh) $(whoami) ; fi
+if [ $SHELL != "/bin/zsh" ]
+then 
+    chsh -s $(which zsh) $(whoami)
+fi
 
 # installing oh-my-zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; fi
+if [ ! -d "$HOME/.oh-my-zsh" ]
+then 
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]
 then
