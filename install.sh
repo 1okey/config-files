@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -z $(uname -a | grep -o 'Ubuntu') ]
+if [ -z $(uname -a | grep -oiE '(Ubuntu|microsoft)') ]
 then 
     echo 'This script meant to run only on Ubuntu distros'
     exit
@@ -30,3 +30,4 @@ fi
 # copying config files into $HOME
 FILES="$(find .  -maxdepth 1 -type f -name '*' -a ! -name 'install.sh')"
 cp $FILES $HOME/
+rm ~/.bash*
