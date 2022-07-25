@@ -1,6 +1,3 @@
-[user]
-	name = AntonSkochko 
-	email = antonskochko@gmail.com 
 [color]
 	ui = true
 [commit]
@@ -11,7 +8,5 @@
 [alias]
 	new-branch = checkout -b 
 	unstage = reset HEAD
-[web]
-	browser = google-chrome
 [credential]
 	helper = cache --timeout=7200
