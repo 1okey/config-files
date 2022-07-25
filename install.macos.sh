@@ -41,7 +41,7 @@ function install() {
     fi
 
     # copying config files into $HOME
-    FILES="$(find .  -maxdepth 1 -type f -name '*' -a ! -name 'install.sh')"
+    FILES="$(find .  -maxdepth 1 -type f -name '*' -a ! -name 'install.*.sh' ! -name '*.md')"
     cp $FILES $HOME/
 }
 
