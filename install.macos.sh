@@ -22,11 +22,9 @@ function install() {
     [ ! -x $(command -v vim) ] && brew install vim
     cp .vimrc ~/.vimrc
 
-    # installing zsh if missing
-    if [ ! -x $(cat /etc/shells | grep 'zsh') ]
+    if [[ ! -x $(which brew) ]]
     then
-        brew install zsh 
-        chsh $(which zsh -s)
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     if [ ! -f "$HOME/.vim/autoload/plug.vim" ]
