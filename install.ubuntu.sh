@@ -7,12 +7,18 @@ then
 fi
 
 # installing main tools
-apt install git zsh tmux vim golang -y
+apt install git zsh tmux vim golang -y xclip
+
+if [ ! -z $(uname -a | grep -oiE 'microsoft') ]
+then
+	echo 'Installing wsl tools'
+	apt install --no-install-recommends wslu
+fi
 
 # changing default shell
 if [ $SHELL != "/bin/zsh" ]
 then 
-	if [ ! -z $(cat /etc/shells | grep -E '/bin.zsh') ]
+	if [ ! -z $(cat /etc/shells | grep -E '/bin/zsh') ]
 	then
 		echo "Installing /bin/zsh"
 		apt-get install zsh
@@ -31,14 +37,6 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]
 then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
-
-# installing rust:
-if [ -z "$(rustup --version 2> /dev/null)" ];
-then
-    echo "Installing rust..."		
-	curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
 fi
 
 
