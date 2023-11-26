@@ -1,0 +1,21 @@
+{
+	"name" : "Monokai",
+	"background" : "#272822",
+	"black" : "#3E3D32",
+	"blue" : "#03395C",
+	"brightBlack" : "#272822",
+	"brightBlue" : "#66D9EF",
+	"brightCyan" : "#66D9EF",
+	"brightGreen" : "#A6E22E",
+	"brightPurple" : "#AE81FF",
+	"brightRed" : "#F92672",
+	"brightWhite" : "#F8F8F2",
+	"brightYellow" : "#FD971F",
+	"cyan" : "#66D9EF",
+	"foreground" : "#F8F8F2",
+	"green" : "#A6E22E",
+	"purple" : "#AE81FF",
+	"red" : "#F92672",
+	"white" : "#F8F8F2",
+	"yellow" : "#FFE792"
+}
