@@ -1,23 +1,20 @@
 #!/bin/sh
 
-if [ -z $(uname -a | grep -oiE '(Ubuntu|microsoft|raspberry)') ]
-then 
+if [ -z $(uname -a | grep -oiE '(Ubuntu|microsoft|raspberry)') ]; then 
     echo 'This script meant to run only on Ubuntu distros'
     exit
 fi
 
 # installing main tools
-apt install git zsh tmux vim golang -y xclip
-
-if [ ! -z $(uname -a | grep -oiE 'microsoft') ]
-then
+sudo apt install git zsh tmux vim golang xclip php mysql-server -y 
+sudo snap install nvim --classic 
+if [ ! -z $(uname -a | grep -oiE 'microsoft') ]; then
 	echo 'Installing wsl tools'
-	apt install --no-install-recommends wslu
+	sudo apt install --no-install-recommends wslu
 fi
 
 # changing default shell
-if [ $SHELL != "/bin/zsh" ]
-then 
+if [ $SHELL != "/bin/zsh" ]; then 
 	if [ ! -z $(cat /etc/shells | grep -E '/bin/zsh') ]
 	then
 		echo "Installing /bin/zsh"
@@ -28,25 +25,26 @@ then
 fi
 
 # installing oh-my-zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]
-then 
+if [ ! -d "$HOME/.oh-my-zsh" ]; then 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-if [ ! -f "$HOME/.vim/autoload/plug.vim" ]
-then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ -d "$HOME/.config/nvim" ]; then
+	cp ./nvim/init.lua "$HOME/.config/nvim"
 fi
 
 
-# installint tpm:
-if [ ! -d "$HOME/.tmux/plugins/tpm" ];
-then
+# installing tpm:
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 	echo "Installing tpm..."
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# installing nvm
+if [ ! -d "%HOME/.nvm" ]; then
+	echo "Installing nvm..."
+	PROFILE=/dev/null && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+fi
 
 # copying config files into $HOME
 FILES="$(find .  -maxdepth 1 -type f -name '*' -a ! -name 'install.*.sh' ! -name '*.md')"
