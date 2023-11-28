@@ -56,9 +56,11 @@ local servers = {
       maxSize = 1000000,
     },
   },
+  eslint = {},
+  sumneko_lua = {},
   jsonls = {},
   sqlls = {},
-  lua_ls = {
+  --[[ lua_ls = {
     Lua = {
       workspace = {
         checkThirdParty = false ,
@@ -66,7 +68,7 @@ local servers = {
       },
       telemetry = { enable = false },
     },
-  },
+  }, ]]
 }
 
 
