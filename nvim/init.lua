@@ -1,4 +1,5 @@
 require('user.options')
+require('user.commands')
 require('user.keymaps')
 
 -- Install packer
@@ -149,6 +150,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'nvim_lsp' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
