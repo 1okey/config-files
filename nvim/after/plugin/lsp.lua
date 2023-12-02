@@ -57,10 +57,12 @@ local servers = {
     },
   },
   eslint = {},
-  sumneko_lua = {},
   jsonls = {},
   sqlls = {},
-  --[[ lua_ls = {
+  emmet_language_server = {
+    filetypes = { "css", "html", "javascript" },
+  },
+  lua_ls = {
     Lua = {
       workspace = {
         checkThirdParty = false ,
@@ -68,7 +70,7 @@ local servers = {
       },
       telemetry = { enable = false },
     },
-  }, ]]
+  },
 }
 
 
