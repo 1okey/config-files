@@ -41,6 +41,12 @@ function install() {
     ! command -v alacritty > /dev/null && brew install --cask alacritty
 
     # install neovim if missing
+    ! command -v rg > /dev/null && brew install rg
+
+    # install neovim if missing
+    ! command -v fzf > /dev/null && brew install fzf
+
+    # install neovim if missing
     ! command -v nvim > /dev/null && brew install neovim
 
     # install neovim if missing
