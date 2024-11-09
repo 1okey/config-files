@@ -1,7 +1,3 @@
-require('user.options')
-require('user.commands')
-require('user.keymaps')
-
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
@@ -10,6 +6,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
   vim.cmd [[packadd packer.nvim]]
 end
+
+
 
 require('packer').startup(function(use)
   -- Package manager
@@ -46,6 +44,16 @@ require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   }
+
+  use({
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+          require("nvim-surround").setup({
+              -- Configuration here, or leave empty to use defaults
+          })
+      end
+  })
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
@@ -90,6 +98,10 @@ if is_bootstrap then
   print '=================================='
   return
 end
+
+require('user.commands')
+require('user.options')
+require('user.keymaps')
 
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })

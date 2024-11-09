@@ -49,7 +49,6 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  tsserver = {},
   intelephense = {
     filetypes = { 'php', 'phtml' },
     files = {
@@ -69,6 +68,9 @@ local servers = {
         [vim.fn.expand('$VIMRUNTIME/lua')] = true,
       },
       telemetry = { enable = false },
+      diagnostics = {
+        globals = {'vim'}
+      },
     },
   },
 }
